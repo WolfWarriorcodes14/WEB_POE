@@ -37,14 +37,14 @@ function ResultPage() {
       try {
         let resultData = result;
         if (!resultData && user && id) {
-          const resultRes = await axios.get("http://localhost:8080/api/results/get", {
+          const resultRes = await axios.get("https://web-poe-u1c9.onrender.com/api/results/get", {
             params: { userId: user.id, testId: id },
           });
           resultData = resultRes.data;
           setResult(resultData);
         }
         if (!resultData) throw new Error("No result data found");
-        const testRes = await axios.get(`http://localhost:8080/api/tests/${resultData.testId}`);
+        const testRes = await axios.get(`https://web-poe-u1c9.onrender.com/api/tests/${resultData.testId}`);
         setTest(testRes.data);
         setLoading(false);
       } catch (err) {
@@ -60,7 +60,7 @@ function ResultPage() {
   useEffect(() => {
     if (attemptId) {
       axios
-        .get(`http://localhost:8080/api/feedback/attempt/${attemptId}`)
+        .get(`https://web-poe-u1c9.onrender.com/api/feedback/attempt/${attemptId}`)
         .then((res) => setExistingFeedback(res.data))
         .catch((err) => {
           if (err.response?.status !== 404) {
@@ -80,7 +80,7 @@ function ResultPage() {
       return;
     }
     try {
-      await axios.post("http://localhost:8080/api/feedback/submit", {
+      await axios.post("https://web-poe-u1c9.onrender.com/api/feedback/submit", {
         userId: user.id,
         attemptId: attemptId,
         testId: Number(id),

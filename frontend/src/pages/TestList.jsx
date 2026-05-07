@@ -21,7 +21,7 @@ function TestList() {
 
   const loadTests = () => {
     setLoading(true);
-    axios.get("http://localhost:8080/api/tests")
+    axios.get("https://web-poe-u1c9.onrender.com/api/tests")
       .then(res => setTests(Array.isArray(res.data) ? res.data : []))
       .catch(() => alert(t("error_loading_tests")))
       .finally(() => setLoading(false));
@@ -34,7 +34,7 @@ function TestList() {
   const handleDelete = async (testId, testTitle) => {
     if (window.confirm(t("confirm_delete_test", { title: testTitle }))) {
       try {
-        await axios.delete(`http://localhost:8080/api/admin/tests/${testId}`);
+        await axios.delete(`https://web-poe-u1c9.onrender.com/api/admin/tests/${testId}`);
         alert(t("test_deleted_successfully"));
         loadTests();
       } catch (err) {

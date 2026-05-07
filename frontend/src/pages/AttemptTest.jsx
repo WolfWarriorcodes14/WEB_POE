@@ -40,7 +40,7 @@ function AttemptTest() {
       return;
     }
     axios
-      .get("http://localhost:8080/api/results/exists", {
+      .get("https://web-poe-u1c9.onrender.com/api/results/exists", {
         params: { userId: user.id, testId: id },
       })
       .then((res) => {
@@ -53,12 +53,12 @@ function AttemptTest() {
   useEffect(() => {
     if (checking) return;
     axios
-      .post(`http://localhost:8080/api/attempts/start?userId=${user.id}&testId=${id}`)
+      .post(`https://web-poe-u1c9.onrender.com/api/attempts/start?userId=${user.id}&testId=${id}`)
       .then((res) => setAttemptId(res.data.id))
       .catch((err) => console.error("Failed to start attempt", err));
 
     axios
-      .get(`http://localhost:8080/api/tests/${id}`)
+      .get(`https://web-poe-u1c9.onrender.com/api/tests/${id}`)
       .then((res) => {
         setTest(res.data);
         // Build flat list of sections and questions for navigation
@@ -241,7 +241,7 @@ function AttemptTest() {
       const formData = new FormData();
       formData.append("file", file);
       try {
-        const res = await axios.post("http://localhost:8080/api/upload", formData);
+        const res = await axios.post("https://web-poe-u1c9.onrender.com/api/upload", formData);
         const url = res.data.url;
         const currentSection = sections[currentSectionIdx];
         const currentQ = currentSection?.questions[currentQIdx];
@@ -286,7 +286,7 @@ function AttemptTest() {
     console.log("Sending payload:", payload);
 
     try {
-      await axios.post("http://localhost:8080/api/results/submit", payload);
+      await axios.post("https://web-poe-u1c9.onrender.com/api/results/submit", payload);
       navigate(`/result/${id}`, { state: { attemptId: attemptId } });
     } catch (err) {
       console.error(err);

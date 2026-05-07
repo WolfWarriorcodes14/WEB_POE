@@ -15,7 +15,7 @@ function TestDetails() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/tests/${id}`)
+      .get(`https://web-poe-u1c9.onrender.com/api/tests/${id}`)
       .then((res) => {
         setTest(res.data);
         setLoading(false);

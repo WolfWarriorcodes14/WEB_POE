@@ -17,7 +17,7 @@ function Login() {
 
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:8080/api/login", { email, password });
+      const res = await axios.post("https://web-poe-u1c9.onrender.com/api/login", { email, password });
 
       if (res.data) {
         alert("Login Successful ✅");

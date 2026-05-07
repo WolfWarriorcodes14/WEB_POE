@@ -26,7 +26,7 @@ function AdminResultDetails() {
       try {
         let attemptData = state;
         if (!attemptData && id) {
-          const resultRes = await axios.get(`http://localhost:8080/api/results/${id}`);
+          const resultRes = await axios.get(`https://web-poe-u1c9.onrender.com/api/results/${id}`);
           attemptData = resultRes.data;
         }
         if (!attemptData) {
@@ -35,12 +35,12 @@ function AdminResultDetails() {
         }
         setResult(attemptData);
 
-        const testRes = await axios.get(`http://localhost:8080/api/tests/${attemptData.testId}`);
+        const testRes = await axios.get(`https://web-poe-u1c9.onrender.com/api/tests/${attemptData.testId}`);
         setTest(testRes.data);
 
         if (attemptData.attemptId) {
           try {
-            const fbRes = await axios.get(`http://localhost:8080/api/feedback/attempt/${attemptData.attemptId}`);
+            const fbRes = await axios.get(`https://web-poe-u1c9.onrender.com/api/feedback/attempt/${attemptData.attemptId}`);
             setFeedback(fbRes.data);
           } catch (err) {
             if (err.response?.status !== 404) {
@@ -69,12 +69,12 @@ function AdminResultDetails() {
     }
     setSaving(true);
     try {
-      await axios.put(`http://localhost:8080/api/results/grade/${result.id}`, gradedAnswers);
+      await axios.put(`https://web-poe-u1c9.onrender.com/api/results/grade/${result.id}`, gradedAnswers);
       alert(t("grades_saved_successfully"));
-      const updatedResult = await axios.get(`http://localhost:8080/api/results/${result.id}`);
+      const updatedResult = await axios.get(`https://web-poe-u1c9.onrender.com/api/results/${result.id}`);
       setResult(updatedResult.data);
       setGradedAnswers({});
-      const testRes = await axios.get(`http://localhost:8080/api/tests/${result.testId}`);
+      const testRes = await axios.get(`https://web-poe-u1c9.onrender.com/api/tests/${result.testId}`);
       setTest(testRes.data);
     } catch (err) {
       console.error(err);

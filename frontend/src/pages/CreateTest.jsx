@@ -114,7 +114,7 @@
 // //     const formData = new FormData();
 // //     formData.append("file", file);
 // //     try {
-// //       const res = await axios.post("http://localhost:8080/api/upload", formData);
+// //       const res = await axios.post("https://web-poe-u1c9.onrender.com/api/upload", formData);
 // //       updateQuestion(sectionId, qId, "mediaUrl", res.data.url);
 // //       alert(t("image_uploaded_successfully"));
 // //     } catch (err) {
@@ -154,7 +154,7 @@
 // //           }))
 // //         }))
 // //       };
-// //       await axios.post("http://localhost:8080/api/tests/create", payload);
+// //       await axios.post("https://web-poe-u1c9.onrender.com/api/tests/create", payload);
 // //       alert(t("test_created_successfully"));
 // //       navigate("/admin/dashboard");
 // //     } catch (err) {
@@ -447,7 +447,7 @@
 //     const formData = new FormData();
 //     formData.append("file", file);
 //     try {
-//       const res = await axios.post("http://localhost:8080/api/upload", formData);
+//       const res = await axios.post("https://web-poe-u1c9.onrender.com/api/upload", formData);
 //       updateQuestion(sectionId, qId, "mediaUrl", res.data.url);
 //       alert("Image uploaded successfully!");
 //     } catch (err) {
@@ -494,7 +494,7 @@
 //           }))
 //         }))
 //       };
-//       await axios.post("http://localhost:8080/api/tests/create", payload);
+//       await axios.post("https://web-poe-u1c9.onrender.com/api/tests/create", payload);
 //       alert("Test Created Successfully ✅");
 //       navigate("/admin/dashboard");
 //     } catch (err) {
@@ -802,7 +802,7 @@ function CreateTest() {
     const formData = new FormData();
     formData.append("file", file);
     try {
-      const res = await axios.post("http://localhost:8080/api/upload", formData);
+      const res = await axios.post("https://web-poe-u1c9.onrender.com/api/upload", formData);
       updateQuestion(sectionId, qId, "mediaUrl", res.data.url);
       alert("Image uploaded successfully!");
     } catch (err) {
@@ -844,7 +844,7 @@ function CreateTest() {
           }))
         }))
       };
-      await axios.post("http://localhost:8080/api/tests/create", payload);
+      await axios.post("https://web-poe-u1c9.onrender.com/api/tests/create", payload);
       alert("Test Created Successfully ✅");
       navigate("/admin/dashboard");
     } catch (err) {

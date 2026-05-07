@@ -25,11 +25,11 @@ function StudentTestList() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const testsRes = await axios.get("http://localhost:8080/api/tests");
+        const testsRes = await axios.get("https://web-poe-u1c9.onrender.com/api/tests");
         setTests(Array.isArray(testsRes.data) ? testsRes.data : []);
 
         const resultsRes = await axios.get(
-          `http://localhost:8080/api/results/student/${user.id}`
+          `https://web-poe-u1c9.onrender.com/api/results/student/${user.id}`
         );
 
         const attemptedIds = resultsRes.data.map(r => r.testId);

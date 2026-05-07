@@ -18,9 +18,9 @@ function AdminTestResults() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const resultsRes = await axios.get(`http://localhost:8080/api/results/test/${id}`);
+        const resultsRes = await axios.get(`https://web-poe-u1c9.onrender.com/api/results/test/${id}`);
         setResults(resultsRes.data);
-        const testRes = await axios.get(`http://localhost:8080/api/tests/${id}`);
+        const testRes = await axios.get(`https://web-poe-u1c9.onrender.com/api/tests/${id}`);
         setTest(testRes.data);
       } catch {
         alert(t("error_loading_results"));

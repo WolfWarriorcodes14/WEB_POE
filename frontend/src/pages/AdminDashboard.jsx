@@ -29,8 +29,8 @@ function AdminDashboard() {
 
     const fetchData = async () => {
       try {
-        const dashboardRes = await axios.get("http://localhost:8080/api/admin/dashboard");
-        const studentsRes = await axios.get("http://localhost:8080/api/results/admin/active-students");
+        const dashboardRes = await axios.get("https://web-poe-u1c9.onrender.com/api/admin/dashboard");
+        const studentsRes = await axios.get("https://web-poe-u1c9.onrender.com/api/results/admin/active-students");
 
         setStats({
           totalTests: dashboardRes.data.tests,

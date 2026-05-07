@@ -37,7 +37,7 @@ function Register() {
 
     try {
       setLoading(true);
-      await axios.post("http://localhost:8080/api/register", form);
+      await axios.post("https://web-poe-u1c9.onrender.com/api/register", form);
       alert(t("account_created_successfully"));
       navigate("/");
     } catch {
