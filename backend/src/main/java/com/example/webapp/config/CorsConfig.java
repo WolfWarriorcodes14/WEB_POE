@@ -12,8 +12,12 @@ public class CorsConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
+
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:3000")
+                        .allowedOrigins(
+                                "http://localhost:3000",
+                                "https://web-poe-frontend1.onrender.com"
+                        )
                         .allowedMethods("*")
                         .allowedHeaders("*");
             }
